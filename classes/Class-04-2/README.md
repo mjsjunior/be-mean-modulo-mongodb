@@ -80,9 +80,9 @@ mjunior(mongod-3.0.7) be-mean-instagram>
 Como percebemos foi inserido apenas o campo active:true no documento, pois foi o unico informado na hora da modificação.
 
 ### **$setOnInsert** ###
-Ele ira inserir um documento adicionar a nossa modificação caso o aconteça um $upsert.
+Caso o $upsert aconteça o objeto passado no $setOnInsert será inserido.
 
-Como exemplo vamos buscar um pokemon que não existe, então nos vamos inserir eles com os valores padrão em nossa collection.
+Como exemplo vamos buscar um pokemon que não existe. Vamos setar ele com valores padrão, NULL.
 
 ```
 // Nossa query de modificação com setOnInsert
@@ -135,10 +135,10 @@ mjunior(mongod-3.0.7) be-mean-instagram>
 
 ### **multi** ###
 
-No MongoDB você **só consegue alterar um documento por vez**. Isso evita um **UPDATE SEM WHERE **  **:P**, mas caso você tenha certeza que precisa alterar mais de um documento você deve passar em options {**multi:true**}
+No MongoDB você **só consegue alterar um documento por vez**. Isso evita um **UPDATE SEM WHERE **  **:P**, mas caso você tenha certeza que precisa alterar mais de um documento você devera passar em options {**multi:true**}
 
 ### **writeConcern** ###
-É um documento que descreve qualquer garantia que o mongodb vai fornecer ao relatar sucesso de sua escrita. Se você quer que ele seja rápido ele terá uma **PREOCUPAÇÃO FRACA**, com uma **PREOCUPAÇÃO FORTE** o banco sera mais lento, mas você tem uma garantia melhor da escrita.
+É um documento que descreve a garantia que o mongodb vai fornecer ao realizar uma escrita. Se você quer que ele seja rápido ele terá uma **PREOCUPAÇÃO FRACA**, com uma **PREOCUPAÇÃO FORTE** o banco sera mais lento, **mas você tem uma garantia melhor da escrita**.
 
 As operações emitidas com **writeConcern fracos** em caso de erro podem não persistir. Com o **writeConcern fortes** os clientes aguardam o mongodb confirmar a operação de escrita
 
@@ -166,7 +166,7 @@ mjunior(mongod-3.0.7) be-mean-instagram>
 ## **$in** ##
 "OR no array"
 
-O operador $in retorna os documentos que possui algum valor passado no array de valores
+O operador $in retorna os documentos que possui algum valor passado no [Array_De_Valores]
 
 ```
 {
@@ -212,7 +212,7 @@ mjunior(mongod-3.0.7) be-mean-instagram>
 ## **$nin** ##
 "NOR no array"
 
-Faz exatamente o contrario do $in. Retorna qualquer documento que não contenha os valores passado no array
+Faz exatamente o contrario do $in. Retorna qualquer documento que não contenha os valores passado no [Array_De_Valores]
 ```
 {
 	campo: {$in: [Array_De_Valores] }
@@ -220,7 +220,7 @@ Faz exatamente o contrario do $in. Retorna qualquer documento que não contenha 
 ```
 
 ## **$all** ##
-Retorna apenas documentos que contenha todos os atributos do array.
+Retorna apenas documentos que contenha todos os atributos do [Array_De_Valores].
 Vamos pesquisar todos os pokemons que possuem os movimentos 'Choque do trovão' e 'Investida'.
 
 ```
