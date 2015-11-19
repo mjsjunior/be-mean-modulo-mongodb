@@ -14,7 +14,9 @@ Com o save é preciso buscar o documento antes de realizar a alteração, já co
 ###**$SET**###
 O operador $set **modifica** um valor ou cria o **campo caso ele não exista**
 
-    {$set: {campo:'novo valor'}}
+    {
+    	$set: {campo:'novo valor'}
+    }
 
 ### **Exemplos** ###
 
@@ -104,7 +106,9 @@ Ele adiciona um valor ao campo. Caso o campo não exista ele ira criar um novo c
 Caso o campo não seja um array ira retornar um erro!
 
 ```
-{$push: {campo: valor}}
+{
+	$push: {campo: valor}
+}
 
 ```
 Como exemplo vamos adicionar o move Choque do trovão no pokemon 'Pikahcu'
@@ -176,9 +180,8 @@ mjunior(mongod-3.0.7) be-mean-instagram>
 Retira o valor do campo array
 
 ```
-{$pull: {
-		campo: valor;
-	}
+{
+	$pull: { campo: valor	}
 }
 ```
 
@@ -210,9 +213,10 @@ mjunior(mongod-3.0.7) be-mean-instagram>
 ```
 
 ### **$pullAll** ###
-Retira todos os valores informados no array do campo array desejado
+Retira todos os valores informados no array do campo desejado
 ```
-{$pullAll: {campo:[valor,valor2,valor3]}
+{
+	$pullAll: {campo:[valor,valor2,valor3]}
 }
 ```
 
